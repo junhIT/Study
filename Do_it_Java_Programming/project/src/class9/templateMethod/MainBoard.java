@@ -1,4 +1,4 @@
-package templateMethod;
+package class9.templateMethod;
 
 public class MainBoard {
 	public static void main(String[] args) {

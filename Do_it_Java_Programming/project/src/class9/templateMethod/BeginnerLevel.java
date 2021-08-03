@@ -1,28 +1,28 @@
-package templateMethod;
+package class9.templateMethod;
 
-public class SuperLevel extends PlayerLevel{
-	
+public class BeginnerLevel extends PlayerLevel {
+
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println("엄청 빨리 달립니다.");
+		System.out.println("천천히 달립니다.");
 	}
 
 	@Override
 	public void jump() {
 		// TODO Auto-generated method stub
-		System.out.println("아주 높이 Jump합니다.");
+		System.out.println("Jump할 줄 모르지롱.");
 	}
 
 	@Override
 	public void turn() {
 		// TODO Auto-generated method stub
-		System.out.println("한바퀴 돕니다.");
+		System.out.println("Turn할 줄 모르지롱.");
 	}
-
+	
 	@Override
 	public void showLevelMessage() {
 		// TODO Auto-generated method stub
-		System.out.println("**** 고급자 레벨입니다. *****");
-	}
+		System.out.println("**** 초급자 레벨입니다. *****");
+	}	
 }

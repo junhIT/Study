@@ -1,4 +1,4 @@
-package templateMethod;
+package class9.templateMethod;
 
 public abstract class PlayerLevel {
 	public abstract void run();

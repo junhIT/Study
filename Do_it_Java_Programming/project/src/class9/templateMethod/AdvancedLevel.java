@@ -1,4 +1,4 @@
-package templateMethod;
+package class9.templateMethod;
 
 public class AdvancedLevel extends PlayerLevel{
 	

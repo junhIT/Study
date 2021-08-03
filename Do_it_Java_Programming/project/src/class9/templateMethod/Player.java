@@ -1,4 +1,4 @@
-package templateMethod;
+package class9.templateMethod;
 
 public class Player {
 	private PlayerLevel level;
