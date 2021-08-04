@@ -1,4 +1,4 @@
-package class8;
+package class8.temp;
 
 public class Temp {
 	public static void main(String[] args) {
