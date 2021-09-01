@@ -1,6 +1,7 @@
 package class12.collection.arrayList;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import class12.collection.Member;
 
@@ -25,6 +26,22 @@ public class MemberArrayList {
 				return true;
 			}
 		}
+		System.out.println(memberId + "가 존재하지 않습니다.");
+		return false;
+	}
+	
+	//iterator를 사용한 removeMember
+	public boolean removeMember(int memberId) {
+		Iterator<Member> ir = arrayList.iterator();
+		while(ir.hasNext()) {
+			Member member = ir.next();
+			int tmpeId = member.getMemberId();
+			if(tmpeId == memberId) {
+				arrayList.remove(member);
+				return true;
+			}
+		}
+		
 		System.out.println(memberId + "가 존재하지 않습니다.");
 		return false;
 	}
