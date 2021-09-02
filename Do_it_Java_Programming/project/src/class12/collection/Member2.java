@@ -1,14 +1,20 @@
 package class12.collection;
 
-public class Member implements Comparable<Member> {
+import java.util.Comparator;
+
+public class Member2 implements Comparator<Member2> {
 	private int memberId; 		// 회원 아이디
 	private String memberName; 	// 회원 이름
 	
-	public Member(int memberId, String memberName) {
+	public Member2(int memberId, String memberName) {
 		this.memberId = memberId;
 		this.memberName = memberName;
 	}
 	
+	public Member2() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getMemberId() {
 		return memberId;
 	}
@@ -35,7 +41,7 @@ public class Member implements Comparable<Member> {
 	@Override
 	public boolean equals(Object obj) {
 		if(obj instanceof Member) {
-			Member member = (Member)obj;
+			Member2 member = (Member2)obj;
 			if(this.memberId == member.memberId) // memberId가 동일하면 true
 				return true;
 			else
@@ -44,9 +50,9 @@ public class Member implements Comparable<Member> {
 		return false;
 	}
 
-	// 추가한 회원 아이디와 매개변수로 받은 회원 아이디를 비교함
+	// compare() 메서드 재정의. 전달받은 두 매개변수를 비교함
 	@Override
-	public int compareTo(Member member) {
-		return (this.memberId - member.memberId);
+	public int compare(Member2 mem1, Member2 mem2) {
+		return mem2.getMemberId() - mem1.getMemberId();
 	}
 }
