@@ -1,11 +1,11 @@
-package controller;
+package com.example.demo.service;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import dto.MovieDTO;
+import com.example.demo.dto.MovieDTO;
 
 @Service
 public class MovieService {
