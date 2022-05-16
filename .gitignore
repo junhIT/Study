@@ -83,3 +83,4 @@ springboot_backend_programming/sts-4.14.1.RELEASE/configuration/org.eclipse.osgi
 springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/java/controller/MovieService.java
 springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/java/controller/SearchController.java
 springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/java/dto/MovieDTO.java
+springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/resources/application-secret.properties
