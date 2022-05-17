@@ -12,6 +12,7 @@ https://brunch.co.kr/@springboot/530
   - PostMan
 
 #❗중요 Point
+
 ##AutoConfiguration
 - 스프링부트는 개발자가 따로 설정하지 않아도 기본 설정이 자동 구성된다.
 ex) 포트번호 : 8080
