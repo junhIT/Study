@@ -11,9 +11,9 @@ https://brunch.co.kr/@springboot/530
   - STS
   - PostMan
 
-#❗중요 Point
+# ❗중요 Point
 
-##AutoConfiguration
+## AutoConfiguration
 - 스프링부트는 개발자가 따로 설정하지 않아도 기본 설정이 자동 구성된다.
 ex) 포트번호 : 8080
 - 아래 링크에서 기본 설정 및 다양할 설정들을 입맛에 맛게 변경하는 방법에 대해서 알 수 있다.
@@ -21,7 +21,7 @@ ex) 포트번호 : 8080
 https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties
 
 
-#🤔개발 중 오류
+# 🤔개발 중 오류
 ## - STS Lombok 미적용
 **1. lombok 설치파일 실행**
 -  STS 좌측 project explorer -> Project and External Dependencies(jar파일 폴더)
