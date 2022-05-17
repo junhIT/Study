@@ -84,3 +84,6 @@ springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/java/c
 springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/java/controller/SearchController.java
 springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/java/dto/MovieDTO.java
 springboot_backend_programming/sts-4.14.1.RELEASE/workspace/demo/src/main/resources/application-secret.properties
+demo/src/main/resources/application-secret.properties
+/.metadata/
+springboot_backend_programming/src/main/resources/application-secret.properties
