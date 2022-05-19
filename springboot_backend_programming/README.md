@@ -5,13 +5,17 @@ https://brunch.co.kr/@springboot/530
 
 <br><br>
 
-[TOC]
+## 목차
+1. [🐾 개발도구](#개발도구)
+1. [🎈 중요 Point](#중요-point)
+1. [🤔 개발 중 오류](#개발-중-오류)
+1. [🤗 참조](#참조)
 
 # 🐾 개발도구
   - STS
   - PostMan
 
-# ❗ 중요 Point
+# 🎈 중요 Point
 
 ## AutoConfiguration
 
@@ -19,7 +23,7 @@ https://brunch.co.kr/@springboot/530
 ex) 포트번호 : 8080
 - 아래 링크에서 기본 설정 및 다양할 설정들을 입맛에 맛게 변경하는 방법에 대해서 알 수 있다.
 
-https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties
+> https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties
 
 ## Active Profiles
 
@@ -62,4 +66,4 @@ Specify location... 클릭 -> STS 실행파일 선택 -> 사용하는 프로그�
 
 
 # 🤗 참조
-https://brunch.co.kr/@springboot/530
+> https://brunch.co.kr/@springboot/530
