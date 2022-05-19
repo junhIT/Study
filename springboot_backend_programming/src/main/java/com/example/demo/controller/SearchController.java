@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.repository.MovieRepository;
+import com.example.demo.service.MovieGroup;
 import com.example.demo.service.MovieService;
 
 @RestController
@@ -18,8 +20,14 @@ public class SearchController {
 	@Autowired
 	private MovieService movieService;
 	
+	@Autowired 
+	private MovieRepository movieRepository;
+
 	@GetMapping("/movies")
 	public List<MovieDTO> getMoviesByQuery(@RequestParam(name = "q") String query) {
-		return movieService.search(query);
+		
+		MovieGroup movieGroup = new MovieGroup(movieRepository.findByQuery(query));
+		
+		return movieGroup.getListOrderRating();
 	}
 }
