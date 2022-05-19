@@ -42,7 +42,7 @@ Profile을 변경하면 <b>application.properties</b>의 설정도 사용하며,
 <b>application.properties</b>와 <b>설정할 profile의 properties파일</b>에 똑같은 변수를 작성하였다면,
 <b>설정할 profile의 properties의 변수</b>를 최종 값으로 사용한다.
 
-#🤔 개발 중 오류
+# 🤔 개발 중 오류
 ## STS Lombok 미적용
 **1. lombok 설치파일 실행**
 
