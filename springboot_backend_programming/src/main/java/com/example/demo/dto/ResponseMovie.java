@@ -25,6 +25,8 @@ public class ResponseMovie {
 		private String actor;
 		private String director;
 		private float userRating;
-		//... TODO : 필드 추가
+		private String image;
+		private String subtitle;
+		private String pubDate; 
 	}
 }

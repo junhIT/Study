@@ -3,6 +3,7 @@ package com.example.demo.repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.http.protocol.HTTP;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -41,6 +42,11 @@ public class MovieRepositoryImpl implements MovieRepository {
 						.title(m.getTitle())
 						.link(m.getLink())
 						.userRating(m.getUserRating())
+						.image(m.getImage())   
+						.subtitle(m.getSubtitle())
+						.pubDate(m.getPubDate())
+						.director(m.getDirector())
+						.actor(m.getActor())
 						.build())
 				.collect(Collectors.toList());
 	}
