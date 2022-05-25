@@ -7,8 +7,8 @@ https://brunch.co.kr/@springboot/530
 
 ## 목차
 1. [🐾 개발도구](#-개발도구)
-1. [🎈 Spring 외 개념 정리](#-Spring-외-개념-정리)
-1. [🎈 중요 Point](#-중요-point)
+1. [🎁 Spring 내용 정리](https://github.com/junhIT/Study/blob/main/springboot_backend_programming/Spring.md)
+1. [🎈 Spring 외 내용 정리](#-Spring-외-내용-정리)
 1. [🤔 개발 중 오류](#-개발-중-오류)
 1. [🤗 참조](#-참조)
 
@@ -16,7 +16,7 @@ https://brunch.co.kr/@springboot/530
   - STS
   - PostMan
 
-# 🎈 Spring 외 개념 정리
+# 🎈 Spring 외 내용 정리
 
 
 # 🤔 개발 중 오류
