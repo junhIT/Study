@@ -4,11 +4,11 @@
 <br><br>
 
 ## 목차
-- [AutoConfiguration](#-AutoConfiguration)
-- [Active Profiles](#-Active-Profiles)
-- [Annotation](#-Profiles)
+- [AutoConfiguration](#autoconfiguration)
+- [Active Profiles](#active-profiles)
+- [Annotation](#annotation)
 
-## AutoConfiguration
+# AutoConfiguration
 
 - 스프링부트는 개발자가 따로 설정하지 않아도 기본 설정이 자동 구성된다.
 ex) 포트번호 : 8080
@@ -63,16 +63,16 @@ Profile을 변경하면 <b>application.properties</b>의 설정도 사용하며,
 
 > **출처**
 Annotation 정리
-https://dev.to/composite/-40c0
-@Controller, @RestController, @RestController
-https://mangkyu.tistory.com/49
-@ResponseBody
-https://ismydream.tistory.com/140
-@RequestMapping, @GetMapping
-https://eunoia3jy.tistory.com/58
-@Service, @Component
-https://codevang.tistory.com/258
-@SpringBootApplicatoin
-https://velog.io/@jwkim/spring-boot-springapplication-annotation
-Lombok
-https://gardeny.tistory.com/4
+https://dev.to/composite/-40c0  
+@Controller, @RestController, @RestController  
+https://mangkyu.tistory.com/49  
+@ResponseBody  
+https://ismydream.tistory.com/140  
+@RequestMapping, @GetMapping  
+https://eunoia3jy.tistory.com/58  
+@Service, @Component  
+https://codevang.tistory.com/258  
+@SpringBootApplicatoin  
+https://velog.io/@jwkim/spring-boot-springapplication-annotation  
+Lombok  
+https://gardeny.tistory.com/4  
