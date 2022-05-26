@@ -13,6 +13,7 @@ import lombok.Setter;
 public class NaverProperties {
 	
 	private String movieUrl;
+	private String bookUrl;
 	private String clientId;
 	private String clientSecret;
 

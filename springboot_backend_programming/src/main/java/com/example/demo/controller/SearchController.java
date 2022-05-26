@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.BookDTO;
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.repository.BookRepository;
 import com.example.demo.repository.MovieRepository;
 import com.example.demo.service.MovieGroup;
 import com.example.demo.service.MovieService;
@@ -22,6 +24,9 @@ public class SearchController {
 	
 	@Autowired 
 	private MovieRepository movieRepository;
+	
+	@Autowired
+	private BookRepository bookRepository;
 
 	@GetMapping("/movies")
 	public List<MovieDTO> getMoviesByQuery(@RequestParam(name = "q") String query) {
@@ -29,5 +34,13 @@ public class SearchController {
 		MovieGroup movieGroup = new MovieGroup(movieService.search(query));
 		
 		return movieGroup.getListOrderRating();
+	}
+	
+	@GetMapping("/books")
+	public List<BookDTO> getBookesByQuery(@RequestParam(name = "q") String query) {
+		
+		List<BookDTO> books = bookRepository.findByQuery(query);
+		
+		return books;
 	}
 }
