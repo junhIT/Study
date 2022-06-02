@@ -20,7 +20,8 @@ public class BeansConfig {
 	}
 	
 	@Bean 
-	public BeanRepositoryImpl beanRepository() {
-		return new BeanRepositoryImpl();
+	public BeanRepository beanRepository() {
+//		return new BeanRepositoryImpl();
+		return new JunRepositoryImpl();
 	}
 }
