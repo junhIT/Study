@@ -1,4 +1,4 @@
-package noDI;
+package com.example.demo.noDI;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,25 +15,12 @@ public class BeansConfig {
 	// 어노테이션 안쓰고 Bean 설정해보기
 	
 	@Bean
-	public MovieService movieService() {
-		return new MovieService(movieRepository());
+	public BeanService beanService() {
+		return new BeanService(beanRepository());
 	}
 	
 	@Bean 
-	public MovieRepository movieRepository() {
-//		return new MovieRepositoryImpl(restTemplate(), naverProperties());
-		return null;
+	public BeanRepositoryImpl beanRepository() {
+		return new BeanRepositoryImpl();
 	}
-	
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
-	
-	@Bean
-	public NaverProperties naverProperties() {
-		return new NaverProperties();
-	}
-	
-
 }
