@@ -22,9 +22,6 @@ public class SearchController {
 	@Autowired
 	private MovieService movieService;
 	
-	@Autowired 
-	private MovieRepository movieRepository;
-	
 	@Autowired
 	private BookRepository bookRepository;
 

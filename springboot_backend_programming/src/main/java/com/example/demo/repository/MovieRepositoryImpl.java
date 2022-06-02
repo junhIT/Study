@@ -3,7 +3,7 @@ package com.example.demo.repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.http.protocol.HTTP;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,13 +17,11 @@ import com.example.demo.dto.ResponseMovie;
 @Component
 public class MovieRepositoryImpl implements MovieRepository {
 	
-	private final RestTemplate restTemplate;
-	private final NaverProperties naverProperties;
-
-	public MovieRepositoryImpl(RestTemplate restTemplate, NaverProperties naverProperties) {
-		this.restTemplate = restTemplate;
-		this.naverProperties = naverProperties;
-	}
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	private NaverProperties naverProperties;
 
 	@Override
 	public List<MovieDTO> findByQuery(String query) {
