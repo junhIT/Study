@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.noDI.BeanService;
 import com.example.demo.repository.MovieRepository;
 
 import lombok.RequiredArgsConstructor;

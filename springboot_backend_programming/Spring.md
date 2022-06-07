@@ -7,6 +7,7 @@
 - [AutoConfiguration](#autoconfiguration)
 - [Active Profiles](#active-profiles)
 - [Annotation](#annotation)
+- [Bean Life Cycle](#bean-life-cycle)
 
 # AutoConfiguration
 
@@ -61,7 +62,8 @@ Profile을 변경하면 <b>application.properties</b>의 설정도 사용하며,
 | @Builder | 빌더패턴을 적용 시킨 방법으로 객체를 생성 할 수 있다.
 <br>
 
-> **출처**
+
+> **출처**  
 Annotation 정리
 https://dev.to/composite/-40c0  
 @Controller, @RestController, @RestController  
@@ -76,3 +78,85 @@ https://codevang.tistory.com/258
 https://velog.io/@jwkim/spring-boot-springapplication-annotation  
 Lombok  
 https://gardeny.tistory.com/4  
+
+
+## Bean Life Cycle
+### 1. 스프링 IoC 컨테이너 생성
+### 2. Component-Scan으로 IoC컨테이너 안에  Bean 등록
+- @Configuration, @Controller, @Service 등 Bean으로 등록할 수 있는 어노테이션들과 설정 파일들을 읽여 Bean으로 등록
+### 3. 의존성 주입
+- 생성자 주입 : 객체의 생성, 의존관계 주입이 동시에 일어남
+- 수정자 주입 : 객체의 생성 -> 의존관계 주입으로 라이프 사이클이 나누어져 있음
+### 4. 초기화 콜백
+- 빈이 생성되고, 빈의 의존관계 주 완료된 후 호출
+- 초기화 인터페이스 : @PostConstruct
+### 5. 소멸 전 콜백
+- 빈이 소멸되기 직전에 호출
+- 소멸 인터페이스 : @PreConstructor
+### 6. 스프링 종료
+
+
+
+  ### - DI ( 의존성 주입 )의 다양한 방법
+  #### 1.  생성자 주입 ( Constructor Injection )
+``` java
+@Service
+public class UserServiceImpl implements UserService {
+
+    private UserRepository userRepository;
+    private MemberService memberService;
+
+    public UserServiceImpl(UserRepository userRepository, MemberService memberService) {
+        this.userRepository = userRepository;
+        this.memberService = memberService;
+    }
+}
+```
+  - 생성자의 호출 시점에 1회 호출되는 것을 보장
+  - 주입받은 객체가 변하지 않거나, 반드시 객체의 주입이 필요한 경우에 강제하기 위해 사용
+  - 생성자가 1개만 있을 경우 @Autowired를 생략해도 주입이 가능
+
+#### 2. 수정자 주입 ( Setter 주입, Setter Injection )
+
+``` Java
+  @Service
+public class UserServiceImpl implements UserService {
+
+    private UserRepository userRepository;
+    private MemberService memberService;
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
+    public void setMemberService(MemberService memberService) {
+        this.memberService = memberService;
+    }
+}
+```
+  - 주입받는 객체가 변경될 가능성이 있는 경우
+
+#### 3. 필드 주입 ( Field Injection )
+
+``` Java
+@Service
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private MemberService memberService;
+}
+```
+  - 외부에서 접근이 불가능하다는 단점
+  - 필드 주입은 반드시 DI 프레임워크가 존재
+
+
+
+> **출처**
+BeanLifeCycle
+https://devlog-wjdrbs96.tistory.com/321
+생성자 주입
+https://mangkyu.tistory.com/125
