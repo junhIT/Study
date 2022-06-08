@@ -30,7 +30,8 @@ public class SearchController {
 		
 		MovieGroup movieGroup = new MovieGroup(movieService.search(query));
 		
-		return movieGroup.getListOrderRating();
+//		return movieGroup.getListOrderRating();
+		return movieGroup.getWithoutZeroRating();
 	}
 	
 	@GetMapping("/books")

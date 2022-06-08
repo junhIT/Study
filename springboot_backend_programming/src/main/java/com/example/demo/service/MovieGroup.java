@@ -19,5 +19,16 @@ public class MovieGroup {
 				.sorted((a, b) -> b.getUserRating() > a.getUserRating() ? 1 : -1)
 				.collect(Collectors.toList());
 	}
-
+	
+	public List<MovieDTO> getWithoutZeroRating() {
+		
+		
+		return list.stream()
+				.filter(b -> Float.compare(b.getUserRating(), 0.0f) > 0)
+				.collect(Collectors.toList());
+//		return list.stream()
+//				.filter(b -> !((Float)b.getUserRating()).equals(0.0f))
+//				.collect(Collectors.toList());
+	}
+	
 }
