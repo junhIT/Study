@@ -13,16 +13,16 @@ public class MovieGroup {
 		this.list = list;
 	}
 	
-	public List<MovieDTO> getListOrderRating() {
+	// 평점 순 오름차순 
+ 	public List<MovieDTO> getListOrderRating() {
 		return list.stream()
 				.filter(b -> !((Float)b.getUserRating()).equals(0.0f))
 				.sorted((a, b) -> b.getUserRating() > a.getUserRating() ? 1 : -1)
 				.collect(Collectors.toList());
 	}
 	
+ 	// 평점 0점 제외
 	public List<MovieDTO> getWithoutZeroRating() {
-		
-		
 		return list.stream()
 				.filter(b -> Float.compare(b.getUserRating(), 0.0f) > 0)
 				.collect(Collectors.toList());

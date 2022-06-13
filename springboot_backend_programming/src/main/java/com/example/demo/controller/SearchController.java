@@ -28,10 +28,9 @@ public class SearchController {
 	@GetMapping("/movies")
 	public List<MovieDTO> getMoviesByQuery(@RequestParam(name = "q") String query) {
 		
-		MovieGroup movieGroup = new MovieGroup(movieService.search(query));
+		List<MovieDTO> movieList = movieService.search(query);
 		
-//		return movieGroup.getListOrderRating();
-		return movieGroup.getWithoutZeroRating();
+		return movieList;
 	}
 	
 	@GetMapping("/books")

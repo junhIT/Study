@@ -3,11 +3,12 @@ package com.example.demo.dto;
 import java.io.Serializable;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
 @Builder
 @Getter
+@ToString
 public class MovieDTO implements Serializable{
 
 	private String title;

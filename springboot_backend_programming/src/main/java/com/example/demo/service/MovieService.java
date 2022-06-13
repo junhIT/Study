@@ -24,7 +24,8 @@ public class MovieService {
 	private final MovieRepository movieRepository;
 	
 	public List<MovieDTO> search(final String query) {
-		return movieRepository.findByQuery(query);
+		MovieGroup moviegroup = new MovieGroup(movieRepository.findByQuery(query));
+		return moviegroup.getWithoutZeroRating();
 	}
 	
 	public List<MovieDTO> query(final String query) {
