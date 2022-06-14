@@ -51,6 +51,7 @@ Profile을 변경하면 <b>application.properties</b>의 설정도 사용하며,
 | @Compoment |  루트 컨테이너에 빈 객체로 생성해주는 어노테이션
 | @Configuration | @Bean과 함께 사용되며, 해당 클래스에 Bean을 등록하고 설정하는 어노테이션
 | @SpringBootApplication | 스프링 부트의 가장 기본적인 설정을 선언해주는 어노테이션
+|@EnableAutoConfiguration|스프링 부트의 AutoConfiguration 기능을 사용하겠다는 설정|
 <br>
 
 ### lombok

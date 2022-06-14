@@ -29,6 +29,11 @@ public class MovieGroup {
 //		return list.stream()
 //				.filter(b -> !((Float)b.getUserRating()).equals(0.0f))
 //				.collect(Collectors.toList());
+	} 
+	
+	// 평점이 제일 높은 영화 선택
+	public MovieDTO getHighestRatingMovie() {
+		return getListOrderRating().get(0);
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,6 +16,7 @@ import com.example.demo.dto.NaverProperties;
 import com.example.demo.dto.ResponseMovie;
 
 @Component
+@Primary
 public class MovieRepositoryImpl implements MovieRepository {
 	
 	@Autowired

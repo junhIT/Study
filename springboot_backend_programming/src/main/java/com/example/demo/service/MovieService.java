@@ -3,10 +3,11 @@ package com.example.demo.service;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.MovieDTO;
-import com.example.demo.noDI.BeanService;
 import com.example.demo.repository.MovieRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -33,5 +34,11 @@ public class MovieService {
 				MovieDTO.builder().title("영화1").link("http://test").build(),
 				MovieDTO.builder().title("영화2").link("http://test").build()
 		);
+	}
+	
+	public MovieDTO recommendeTodayMovie() {
+		var query = "반지의 제왕";
+		MovieGroup movieGroup = new MovieGroup(movieRepository.findByQuery(query));
+		return movieGroup.getHighestRatingMovie();
 	}
 }
