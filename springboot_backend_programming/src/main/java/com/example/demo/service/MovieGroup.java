@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.example.demo.dto.MovieDTO;
@@ -32,8 +33,8 @@ public class MovieGroup {
 	} 
 	
 	// 평점이 제일 높은 영화 선택
-	public MovieDTO getHighestRatingMovie() {
-		return getListOrderRating().get(0);
+	public Optional<MovieDTO> getHighestRatingMovie() {
+		return getListOrderRating().stream().findFirst();
 	}
 	
 }
