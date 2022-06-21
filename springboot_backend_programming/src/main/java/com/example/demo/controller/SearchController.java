@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.BookDTO;
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.exception.ClientNoContentRuntimeException;
 import com.example.demo.repository.BookRepository;
 import com.example.demo.service.MovieService;
 
@@ -41,7 +42,7 @@ public class SearchController {
 	}
 	
 	@GetMapping("/recommende-movie")
-	public MovieDTO getRecommendeMovie(@RequestParam(name = "q") String query) {
-		return movieService.recommendeTodayMovie();
+	public MovieDTO getRecommendeMovie(@RequestParam(name = "q") String query) throws ClientNoContentRuntimeException {
+		return movieService.recommendeTodayMovie(query);
 	}
 }

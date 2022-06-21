@@ -2,11 +2,11 @@ package com.example.demo.service;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.exception.ClientNoContentRuntimeException;
 import com.example.demo.repository.MovieRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -35,9 +35,9 @@ public class MovieService {
 		);
 	}
 	
-	public MovieDTO recommendeTodayMovie() {
-		var query = "없는영화(이영화는없는영화입니다.)";
+	public MovieDTO recommendeTodayMovie(String query) throws ClientNoContentRuntimeException{
 		MovieGroup movieGroup = new MovieGroup(movieRepository.findByQuery(query));
-		return movieGroup.getHighestRatingMovie().orElse(MovieDTO.builder().title("기본영화").userRating(9.9f).build());
+//		return movieGroup.getHighestRatingMovie().orElse(MovieDTO.builder().title("기본영화").userRating(9.9f).build());
+		return movieGroup.getHighestRatingMovie().orElseThrow(ClientNoContentRuntimeException::new);
 	}
 }

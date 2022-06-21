@@ -16,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.exception.ClientNoContentRuntimeException;
 import com.example.demo.repository.MovieRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,7 +45,7 @@ class MovieServiceTest {
 
 	@DisplayName("오늘의 추천 영화로 평점이 제일 높은 영화를 제공하는 검증")
 	@Test
-	void shoulRecommendedHighestRating() {
+	void shoulRecommendedHighestRating() throws ClientNoContentRuntimeException {
 		
 		// given
 		var query = "테스트_쿼리";
@@ -55,7 +56,7 @@ class MovieServiceTest {
 		// when
 		MovieService movieService = new MovieService(movieRepository);
 		
-		MovieDTO actualMovie = movieService.recommendeTodayMovie();
+		MovieDTO actualMovie = movieService.recommendeTodayMovie("");
 		
 		System.out.println("actualMovie:::" + actualMovie.toString());
 		
@@ -67,7 +68,7 @@ class MovieServiceTest {
 	
 	@DisplayName("추천한 영화가 없을 때 디폴트 영화를 제공하는지 검증")
 	@Test
-	void shouDefaultMovieWhenNoneRecommended() {
+	void shouDefaultMovieWhenNoneRecommended() throws ClientNoContentRuntimeException {
 		
 		var expectedDefaultMovie = "기본영화";
 		
@@ -77,7 +78,7 @@ class MovieServiceTest {
 		
 		// when
 		
-		MovieDTO actualMovie = movieService.recommendeTodayMovie();
+		MovieDTO actualMovie = movieService.recommendeTodayMovie("");
 		
 		System.out.println("디폴트 영화 제공 검증 output" + actualMovie.toString());
 		
