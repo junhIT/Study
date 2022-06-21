@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 
@@ -8,7 +9,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -76,8 +76,13 @@ class MovieServiceTest {
 		
 		MovieService movieService = new MovieService(movieRepository);
 		
+		assertThrows(ClientNoContentRuntimeException.class, () -> {
+			var movie = movieService.recommendeTodayMovie("");
+		});
+		
 		// when
 		
+		/*
 		MovieDTO actualMovie = movieService.recommendeTodayMovie("");
 		
 		System.out.println("디폴트 영화 제공 검증 output" + actualMovie.toString());
@@ -85,6 +90,7 @@ class MovieServiceTest {
 		// then
 		
 		assertEquals(expectedDefaultMovie, actualMovie.getTitle());
+		*/
 	}
 	private List<MovieDTO> getStubMovies() {
 		  return Arrays.asList(
