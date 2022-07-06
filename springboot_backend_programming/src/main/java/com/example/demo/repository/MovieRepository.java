@@ -6,5 +6,4 @@ import com.example.demo.dto.MovieDTO;
 
 public interface MovieRepository {
 	List<MovieDTO> findByQuery(String query);
-
 }

@@ -3,10 +3,10 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,11 +31,8 @@ public class SearchController {
 	private BookRepository bookRepository;
 
 	@GetMapping("/movies")
-	@Cacheable(key = "#query", cacheNames="List<MovieDTO>")
 	public List<MovieDTO> getMoviesByQuery(@RequestParam(name = "q") String query) {
 
-		log.info("#################################### getMoviesByQuery Method 호출, " + query);
-		
 		List<MovieDTO> movieList = movieService.search(query);
 		
 		return movieList;
@@ -54,17 +51,38 @@ public class SearchController {
 		return movieService.recommendeTodayMovie(query);
 	}
 	
+	@GetMapping("/searchCache")
+	@Cacheable(key = "#query", cacheNames="List<MovieDTO>")
+	public List<MovieDTO> searchCache(@RequestParam(name = "q") String query) {
+
+		log.info("#################################### searchCache Method 호출, " + query);
+		
+		List<MovieDTO> movieList = movieService.search(query);
+		
+		return movieList;
+	}
+	
 	/*
-	 * movieDTO 입력받아 저장하기 위한 Method
+	 * 강제로 Cache update
 	 */
-	@PostMapping("/insertMovie")
-	public boolean insertMovie(MovieDTO movieDTO) {
-		boolean success = false;
+	@GetMapping("/updateCache")
+	@CachePut(key = "#query", cacheNames="List<MovieDTO>")
+	public List<MovieDTO> insertMovie(@RequestParam(name = "q") String query) {
+
+		List<MovieDTO> movieList = movieService.search(query);
 		
-		log.info("############################# insertMovie Method 호출" + movieDTO.toString());
+		log.info("#################################### updateCache Method 호출, " + query);
 		
+		return movieList;
+	}
+	
+	/*
+	 * Cache 삭제
+	 */
+	@CacheEvict(cacheNames="List<MovieDTO>", key = "#query")
+	@GetMapping("/removeCache")
+	public void deleteCache(@RequestParam(name = "q") String query) {
+		log.info("#################################### removeCache Method 호출, " + query);
 		
-		
-		return success;
 	}
 }
