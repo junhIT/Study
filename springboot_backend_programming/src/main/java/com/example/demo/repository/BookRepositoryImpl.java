@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.config.PerformanceTimeRecord;
 import com.example.demo.dto.BookDTO;
 import com.example.demo.dto.NaverProperties;
 import com.example.demo.dto.ResponseBook;
@@ -49,5 +51,18 @@ public class BookRepositoryImpl implements BookRepository {
 						.title(m.getTitle())
 						.build())
 				.collect(Collectors.toList());
+	}
+	
+	@Override
+	@PerformanceTimeRecord
+	public List<BookDTO> findAllByAuthors(final String author) {
+		try {
+			// 비즈니스 로직 수행 시간
+			Thread.sleep(3000);
+			
+			return Arrays.asList(BookDTO.builder().title("책1").build());
+		} catch (InterruptedException e){
+			throw new RuntimeException("TEST");
+		}
 	}
 }

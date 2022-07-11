@@ -46,6 +46,11 @@ public class SearchController {
 		return books;
 	}
 	
+	@GetMapping("/booksByAuthor")
+	public List<BookDTO> getBooksByAuthor(@RequestParam(name = "author") String author) {
+		return bookRepository.findAllByAuthors(author);
+	}
+	
 	@GetMapping("/recommende-movie")
 	public MovieDTO getRecommendeMovie(@RequestParam(name = "q") String query) throws ClientNoContentRuntimeException {
 		return movieService.recommendeTodayMovie(query);

@@ -8,6 +8,7 @@
 - [Active Profiles](#active-profiles)
 - [Annotation](#annotation)
 - [Bean Life Cycle](#bean-life-cycle)
+- [AOP (Aspect-Oriented Programming)](#aop--aspect-oriented-programming-)
 
 # AutoConfiguration
 
@@ -161,3 +162,32 @@ BeanLifeCycle
 https://devlog-wjdrbs96.tistory.com/321
 생성자 주입
 https://mangkyu.tistory.com/125
+
+# AOP (Aspect-Oriented Programming)
+- 관점 지향 프로그래밍으로 인프라 혹은 부가기능을 모듈화
+ex) 로깅, 트랜잭션, 보안 등
+
+## AOP 용어
+### 타겟(Target)
+- 부가기능을 부여할 대상
+
+### 애스펙트(Aspect)
+- 부가기능 모듈을 애스펙트라고 부르며, 핵심 기능에 부가되어 특별한 의미를 갖는 모듈
+
+### 어드바이스(Advice)
+- 실직적으로 부가기능을 담은 구현체로, 애스펙트가 '무엇을', '언제' 할지를 정의함
+
+### 조인포인트(JoinPoint)
+-   어드바이스가 적용될 수 있는 위치
+
+### 프록시(Proxy)
+- 타겟을 감싸서 타겟의 요청을 대신 받아주는 랩핑(Wrapping) 오브젝트
+
+### 인트로덕션(Introduction)
+- 타겟 클래스에 코드 변경없이 신규 메소드나 멤버변수를 추가하는 기능
+
+### 위빙(Weaving)
+- 지정된 객체에 애스팩트를 적용해서 새로운 프록시 객체를 생성하는 과정
+
+> **출처**
+https://jojoldu.tistory.com/71
