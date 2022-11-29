@@ -1,3 +1,4 @@
 *.class
 springboot_backend_programming/src/main/resources/application-secret.properties
 .metadata/
+spring-base/docs
