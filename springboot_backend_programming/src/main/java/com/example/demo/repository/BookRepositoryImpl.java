@@ -11,6 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.cache.LookAsideCaching;
 import com.example.demo.config.PerformanceTimeRecord;
 import com.example.demo.dto.BookDTO;
 import com.example.demo.dto.NaverProperties;
@@ -55,6 +56,7 @@ public class BookRepositoryImpl implements BookRepository {
 	
 	@Override
 	@PerformanceTimeRecord
+	@LookAsideCaching(value = "cache::recommend-movie")
 	public List<BookDTO> findAllByAuthors(final String author) {
 		try {
 			// 비즈니스 로직 수행 시간

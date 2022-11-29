@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.cache.CurrentMapCustomCache;
+import com.example.demo.cache.LookAsideCaching;
 import com.example.demo.dto.BookDTO;
 import com.example.demo.dto.MovieDTO;
 import com.example.demo.exception.ClientNoContentRuntimeException;
@@ -29,7 +31,7 @@ public class SearchController {
 	
 	@Autowired
 	private BookRepository bookRepository;
-
+	
 	@GetMapping("/movies")
 	public List<MovieDTO> getMoviesByQuery(@RequestParam(name = "q") String query) {
 
@@ -47,8 +49,13 @@ public class SearchController {
 	}
 	
 	@GetMapping("/booksByAuthor")
+	@Cacheable(value = "cache::recommend-movie")
 	public List<BookDTO> getBooksByAuthor(@RequestParam(name = "author") String author) {
-		return bookRepository.findAllByAuthors(author);
+		
+		
+		List<BookDTO> bookDTOs = bookRepository.findAllByAuthors(author);
+		
+		return bookDTOs;
 	}
 	
 	@GetMapping("/recommende-movie")
