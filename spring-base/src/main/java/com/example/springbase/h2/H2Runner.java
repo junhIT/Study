@@ -11,7 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * H2 DataBase 초기화 클래스
- * 2022.11.25 @author JunHi
+ * 2022.11.25 
+ * @author JunHi
  */
 @Slf4j
 @Component
@@ -26,8 +27,6 @@ public class H2Runner implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception {
 		try(Connection connection = dataSource.getConnection()) {
 			log.debug("================================ DataSource Connection Success");
-			log.info("DataSource ::: connection.getMetaData().getURL() = " + connection.getMetaData().getURL() );
-			log.info("DataSource ::: connection.getMetaData().getUserName() = " + connection.getMetaData().getUserName());
 
 			Statement statement = connection.createStatement();
 			String sql = "CREATE TABLE USERS(id INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY(id))";
