@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.springbase.dto.PostEntity;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest	// H2 DB 자동으로 실행
 class PostRepositoryTest {
 
