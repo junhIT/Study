@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class PostEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class Posts {
 	private String author;
 	
 	@Builder
-	public Posts(String title, String content, String author) {
+	public PostEntity(String title, String content, String author) {
 		this.title = title;
 		this.content = content;
 		this.author = author;

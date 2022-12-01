@@ -12,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.springbase.dto.Posts;
+import com.example.springbase.dto.PostEntity;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest	// H2 DB 자동으로 실행
-class PostsRepositoryTest {
+class PostRepositoryTest {
 
 	@Autowired
-	PostsRepository postsRepository;
+	PostRepository postsRepository;
 	
 	@After
 	public void cleanup() {
@@ -34,14 +34,14 @@ class PostsRepositoryTest {
 		String content = "테스트 본문";
 		
 		// builder 클래스를 통해 생성자 생성 후 save (insert/update)
-		postsRepository.save(Posts.builder()
+		postsRepository.save(PostEntity.builder()
 									.title(title)
 									.content(content)
 									.author("test@test.com")
 									.build());
 		
-		List<Posts> postsList = postsRepository.findAll();
-		Posts posts = postsList.get(0);
+		List<PostEntity> postsList = postsRepository.findAll();
+		PostEntity posts = postsList.get(0);
 		
 		assertThat(posts.getTitle()).isEqualTo(title);
 		assertThat(posts.getContent()).isEqualTo(content);		
