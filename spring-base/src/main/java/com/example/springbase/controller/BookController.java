@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.springbase.dto.PostEntity;
@@ -21,12 +22,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
+@RequestMapping("/book")
 public class BookController {
 	
 	@Autowired
 	private PostRepository postRepository;
 	
-	@GetMapping("/book/index")
+	@GetMapping("/index")
 	public String book() {
 		return "/book/index";
 	}
