@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.springbase.dto.PostEntity;
 import com.example.springbase.repository.PostRepository;
@@ -19,13 +20,19 @@ import com.example.springbase.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestController
+@Controller
 public class BookController {
 	
 	@Autowired
 	private PostRepository postRepository;
 	
+	@GetMapping("/book/index")
+	public String book() {
+		return "/book/index";
+	}
+	
 	// Post 등록
+	@ResponseBody
 	@PostMapping("/post")
 	public PostEntity createPost(@RequestBody PostEntity post) {
 		
@@ -35,6 +42,7 @@ public class BookController {
 	}
 	
 	// post 조회
+	@ResponseBody
 	@GetMapping("/post")
 	public List<PostEntity> listAllPost() {
 		
@@ -51,6 +59,7 @@ public class BookController {
 	}
 	
 	// post 수정
+	@ResponseBody
 	@PutMapping("/post/{id}")
 	public PostEntity updatePost(@PathVariable("id") UUID id,
 									@RequestBody PostEntity postEntity) {
@@ -59,6 +68,7 @@ public class BookController {
 	}
 	
 	// post 삭제
+	@ResponseBody
 	@DeleteMapping("/post/{id}")
 	public void deletePost(@PathVariable("id") Long id) {
 		postRepository.deleteById(id);

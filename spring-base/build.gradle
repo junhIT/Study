@@ -27,6 +27,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// H2
 	runtimeOnly 'com.h2database:h2'
+	// jsp
+	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
 }
 
 tasks.named('test') {
