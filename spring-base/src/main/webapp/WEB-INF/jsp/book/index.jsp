@@ -12,19 +12,56 @@
 	
 	// Evnt 초기화
 	function initEvnt() {
-		$('#btnSearch').bind('click', function() {
+		$('#btnSearch').on('click', function() {
 			console.log("btnSearch 클릭");
 			
 			$.ajax({
 			    url: "/book/post", 
 			})
 			.done(function(json) {
-				console.log("Success 데이터 :::: ", json);
+				console.log("btnSearch Success 데이터 :::: ", json);
 				
 				$('#searchResult').val(JSON.stringify(json));
+			});
+		});
+		
+		$('#btnReg').on('click', function() {
+			console.log("btnReg 클릭");
+			
+			const data = JSON.stringify($("form[name=regForm]").serializeObject());
+			
+			$.ajax({
+			    url: "/book/post", 
+			    type : "post",
+		    	data : data,
+			    contentType: "application/json", 
+			})
+			.done(function(json) {
+				console.log("btnReg Success 데이터 :::: ", json);
 			})
 		})
 	}
+	
+	jQuery.fn.serializeObject = function() {
+	    var obj = null;
+	    try {
+	        if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+	            var arr = this.serializeArray();
+	            if (arr) {
+	                obj = {};
+	                jQuery.each(arr, function() {
+	                    obj[this.name] = this.value;
+	                });
+	            }//if ( arr ) {
+	        }
+	    } catch (e) {
+	        alert(e.message);
+	    } finally {
+	    }
+	 
+	    return obj;
+	};
+
 
 </script>
 	
@@ -35,7 +72,7 @@
     <title>BookPage</title>
 </head>
 <body>
-	<form action="post" method="post">
+	<form action="post" method="post" name="regForm">
 		<div>
 			제목
 			<input name="title" type="text" />
@@ -51,8 +88,8 @@
 			<input name="author" type="text" />
 		</div>
 		<!-- TODO Form데이터 Controller에서 받을 수 있도록 수정 필요 -->
-		<button type="submit">등록</button> 
 	</form>
+	<button id="btnReg">등록</button> 
 
 
 
