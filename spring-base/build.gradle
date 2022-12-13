@@ -29,6 +29,8 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	// jsp
 	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+	// aop
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 tasks.named('test') {
